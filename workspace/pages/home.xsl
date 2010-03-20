@@ -30,7 +30,7 @@
 
 <xsl:template match="items/item">
 	<li>
-		<a href="#{to-do/@handle}"><xsl:value-of select="to-do"/></a>
+		<a href="#item-id-{@id}"><xsl:value-of select="to-do"/></a>
 	</li>
 </xsl:template>
 
