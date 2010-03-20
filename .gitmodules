@@ -19,3 +19,9 @@
 [submodule "extensions/debugdevkit"]
 	path = extensions/debugdevkit
 	url = git://github.com/symphony/debugdevkit.git
+[submodule "extensions/subsectionmanager"]
+	path = extensions/subsectionmanager
+	url = git://github.com/nilshoerrmann/subsectionmanager.git
+[submodule "extensions/export_install_file"]
+	path = extensions/export_install_file
+	url = git://github.com/bauhouse/export_install_file.git
