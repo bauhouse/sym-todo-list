@@ -25,3 +25,6 @@
 [submodule "extensions/export_install_file"]
 	path = extensions/export_install_file
 	url = git://github.com/bauhouse/export_install_file.git
+[submodule "extensions/order_entries"]
+	path = extensions/order_entries
+	url = git://github.com/nickdunn/order_entries.git
