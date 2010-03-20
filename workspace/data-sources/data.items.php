@@ -12,7 +12,7 @@
 		public $dsParamSTARTPAGE = '1';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 		public $dsParamINCLUDEDELEMENTS = array(
-				'item',
+				'to-do',
 				'open',
 				'order'
 		);
@@ -30,7 +30,7 @@
 							'website' => 'http://home/sym/todolist',
 							'email' => 'bauhouse@gmail.com'),
 					 'version' => '1.0',
-					 'release-date' => '2010-03-20T20:53:13+00:00');	
+					 'release-date' => '2010-03-20T21:30:02+00:00');	
 		}
 		
 		public function getSource(){
