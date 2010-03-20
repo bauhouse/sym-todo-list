@@ -10,6 +10,19 @@
 	indent="yes" />
 
 <xsl:template match="/">
-	<h1>Hello</h1>
+	<html>
+		<head>
+			<title><xsl:value-of select="$website-name"/></title>
+		</head>
+		<body>
+			<h1><xsl:value-of select="$website-name"/></h1>
+			<ul class="lists"><xsl:apply-templates select="data/lists/entry"/></ul>
+		</body>
+	</html>
 </xsl:template>
+
+<xsl:template match="lists/entry">
+	<li><xsl:value-of select="name"/></li>
+</xsl:template>
+
 </xsl:stylesheet>
