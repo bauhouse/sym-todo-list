@@ -22,7 +22,7 @@
 </xsl:template>
 
 <xsl:template match="lists/entry">
-	<li><xsl:value-of select="name"/></li>
+	<li><a href="#entry-id-{@id}"><xsl:value-of select="name"/></a></li>
 </xsl:template>
 
 </xsl:stylesheet>
