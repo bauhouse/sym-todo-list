@@ -16,7 +16,7 @@
 		</head>
 		<body>
 			<h1><xsl:value-of select="$website-name"/></h1>
-			<ul class="lists"><xsl:apply-templates select="data/lists/entry"/></ul>
+			<xsl:apply-templates select="data/lists/entry" mode="form"/>
 		</body>
 	</html>
 </xsl:template>
@@ -32,6 +32,30 @@
 	<li>
 		<a href="#item-id-{@id}"><xsl:value-of select="to-do"/></a>
 	</li>
+</xsl:template>
+
+<xsl:template match="lists/entry" mode="form">
+	<form method="post" action="">
+		<fieldset>
+			<legend><xsl:value-of select="name"/></legend>
+			<xsl:apply-templates select="items/item" mode="form"/>
+			<input type="submit" value="Update List"/>
+		</fieldset>
+	</form>
+</xsl:template>
+
+<xsl:template match="items/item" mode="form">
+	<p>
+		<label>
+			<input type="checkbox">
+				<xsl:if test="open = 'Yes'">
+					<xsl:attribute name="checked">checked</xsl:attribute>
+				</xsl:if>
+			</input>
+			<xsl:text> </xsl:text>
+			<xsl:value-of select="to-do"/>
+		</label>
+	</p>
 </xsl:template>
 
 </xsl:stylesheet>
