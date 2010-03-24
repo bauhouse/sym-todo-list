@@ -95,7 +95,7 @@
 				</tbody>
 			</table>
 		</fieldset>
-		<input name="redirect" type="hidden" value="{$root}/success/" />
+		<input name="redirect" type="hidden" value="{$root}/" />
 	</form>
 </xsl:template>
 
