@@ -165,6 +165,20 @@ CREATE TABLE `tbl_fields_selectbox_link` (
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- *** STRUCTURE: `tbl_fields_stage` ***
+DROP TABLE IF EXISTS `tbl_fields_stage`;
+CREATE TABLE `tbl_fields_stage` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `field_id` int(11) unsigned NOT NULL default '0',
+  `constructable` smallint(1) default '0',
+  `destructable` smallint(1) default '0',
+  `draggable` smallint(1) default '0',
+  `droppable` smallint(1) default '0',
+  `searchable` smallint(1) default '0',
+  `context` varchar(255) collate utf8_unicode_ci default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- *** STRUCTURE: `tbl_fields_subsectionmanager` ***
 DROP TABLE IF EXISTS `tbl_fields_subsectionmanager`;
 CREATE TABLE `tbl_fields_subsectionmanager` (
@@ -174,8 +188,8 @@ CREATE TABLE `tbl_fields_subsectionmanager` (
   `filter_tags` text collate utf8_unicode_ci,
   `caption` text collate utf8_unicode_ci,
   `included_fields` text collate utf8_unicode_ci,
-  `allow_multiple_selection` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'yes',
-  `show_preview` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'yes',
+  `allow_multiple` tinyint(1) default '0',
+  `show_preview` tinyint(1) default '0',
   PRIMARY KEY  (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
