@@ -1,3 +1,49 @@
+# To Do List Ensemble
+
+A Simple Single Page Application
+
+- Version: 0.2
+- Date: 28 September 2010
+- Download: <http://symphony-cms.com/download/ensembles/view/41699/>
+- Github Repository: <http://github.com/bauhouse/sym-todo-list>
+- Forum Discussion: <http://symphony-cms.com/discuss/thread/41700/>
+
+## Release Notes
+
+#### [Version 0.2](http://github.com/bauhouse/sym-todo-list/commits/0.2)
+
+- Date: 28 September 2010
+- Updated to Symphony 2.1.1
+- Updated Subsection Manager Extension to version 1.0.1
+
+#### [Version 0.1](http://github.com/bauhouse/sym-todo-list/commits/0.1)
+
+- Date: 21 March 2010
+- Initial Release
+- Symphony 2.0.8 RC1
+- Subsection Manager Extension 1.0dev
+
+### Description
+
+[Version 0.1](http://github.com/bauhouse/sym-todo-list/commits/0.1) was an experimental ensemble to test Symphony 2.0.8 RC1 and the beta version of the Subsection Manager extension. The ensemble has been updated to Symphony 2.1.1 and the Subsection Manager extension has been updated to version 1.0.1.
+
+The user interface is a pared down version of what I've designed for Domain7 in order to track projects with our proprietary set of web tools. This is the beginnings of a project to tear down what I've built on top of a proprietary Perl codebase and rebuild it as an open source project management tool.
+
+### Usage
+
+The Sites and Resources lists are currently hard-coded. I'm hoping to add the ability to add lists of categories and links for these two columns.
+
+The To Do List column contains a form that allows the ability to edit entries created with the Subsection Manager.
+
+- Check off items as done and click the Update Lists button to save entries.
+- Click on the description for each checkbox item to enable editing of the entry. Click the Update Lists button to save the change.
+- Click on the name of the list to enable editing of all items in the list.
+- Click on the To Do List column heading to enable editing of items in both lists
+- A system navigation bar allows quick access to Symphony admin pages, including Debug Dev Kit page, Profile Dev Kit pages, Publish, Blueprints, System and Symphony CMS Site and GitHub links. There is a User Preferences section in the Symphony admin that can be used to change the setting for displaying this system navigation bar.
+
+
+
+
 # Symphony 2 #
 
 - Version: 2.1.1
