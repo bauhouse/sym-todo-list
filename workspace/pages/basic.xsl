@@ -19,6 +19,7 @@
 		<body>
 			<h1><xsl:value-of select="$website-name"/></h1>
 			<xsl:apply-templates select="data/lists/entry" mode="form"/>
+			<xsl:call-template name="new-list-form"/>
 		</body>
 	</html>
 </xsl:template>
@@ -87,6 +88,19 @@
 				</label>
 			</p>
 			<input name="action[save-items]" type="submit" value="Update List" />
+		</fieldset>
+	</form>
+</xsl:template>
+
+<xsl:template name="new-list-form">
+	<form method="post" action="" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Create a New List</legend>
+			<input name="MAX_FILE_SIZE" type="hidden" value="5242880" />
+			<label>Name
+				<input name="fields[name]" type="text" />
+			</label>
+			<input name="action[save-list]" type="submit" value="Submit" />
 		</fieldset>
 	</form>
 </xsl:template>
