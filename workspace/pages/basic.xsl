@@ -19,7 +19,7 @@
 		<body>
 			<h1><xsl:value-of select="$website-name"/></h1>
 			<xsl:apply-templates select="data/lists/entry" mode="form"/>
-			<xsl:call-template name="new-list-form"/>
+			<xsl:call-template name="new-list-form" />
 		</body>
 	</html>
 </xsl:template>
@@ -42,6 +42,9 @@
 		<fieldset>
 			<legend><xsl:value-of select="name"/></legend>
 			<xsl:apply-templates select="items/item" mode="form"/>
+			<xsl:call-template name="new-item-field">
+				<xsl:with-param name="index" select="count(items/item)" />
+			</xsl:call-template>
 			<input name="action[save-items]" type="submit" value="Update List"/>
 		</fieldset>
 	</form>
@@ -103,6 +106,22 @@
 			<input name="action[save-list]" type="submit" value="Submit" />
 		</fieldset>
 	</form>
+</xsl:template>
+
+<xsl:template name="new-item-field">
+	<xsl:param name="index" />
+	<p>
+		<label>
+			<input type="hidden" value="no" name="fields[{$index}][open]" />
+			<input type="checkbox" name="fields[{$index}][open]" value="yes">
+				<xsl:if test="open = 'Yes'">
+					<xsl:attribute name="checked">checked</xsl:attribute>
+				</xsl:if>
+			</input>
+			<xsl:text> </xsl:text>
+			<input type="input" name="fields[{$index}][to-do]" value="{to-do}" style="width:300px"/>
+		</label>
+	</p>
 </xsl:template>
 
 </xsl:stylesheet>
