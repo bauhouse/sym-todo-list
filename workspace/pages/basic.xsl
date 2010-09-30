@@ -18,6 +18,7 @@
 		</head>
 		<body>
 			<h1><xsl:value-of select="$website-name"/></h1>
+			<xsl:call-template name="add-item-to-list" />
 			<xsl:apply-templates select="data/lists/entry" mode="form"/>
 			<xsl:call-template name="new-list-form" />
 		</body>
@@ -48,6 +49,7 @@
 			<input name="action[save-items]" type="submit" value="Update List"/>
 		</fieldset>
 	</form>
+	<xsl:call-template name="new-item-form" />
 </xsl:template>
 
 <xsl:template match="items/item" mode="form">
@@ -103,7 +105,28 @@
 			<label>Name
 				<input name="fields[name]" type="text" />
 			</label>
-			<input name="action[save-list]" type="submit" value="Submit" />
+			<input name="action[save-list]" type="submit" value="Create List" />
+		</fieldset>
+	</form>
+</xsl:template>
+
+<xsl:template name="new-item-form">
+	<form method="post" action="" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Create a New Item</legend>
+			<p>
+				<label>
+					<input type="hidden" value="no" name="fields[open]" />
+					<input type="checkbox" name="fields[open]" value="yes">
+						<xsl:if test="open = 'Yes'">
+							<xsl:attribute name="checked">checked</xsl:attribute>
+						</xsl:if>
+					</input>
+					<xsl:text> </xsl:text>
+					<input type="input" name="fields[to-do]" value="" style="width:300px"/>
+				</label>
+			</p>
+			<input name="action[save-item]" type="submit" value="Create Item" />
 		</fieldset>
 	</form>
 </xsl:template>
@@ -122,6 +145,28 @@
 			<input type="input" name="fields[{$index}][to-do]" value="{to-do}" style="width:300px"/>
 		</label>
 	</p>
+</xsl:template>
+
+<xsl:template name="add-item-to-list">
+	<form method="post" action="" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Add to List</legend>
+			<input name="id" type="hidden" value="5" />
+			<p>
+				<label>Name
+					<input name="fields[name]" type="text" value="Things to Learn" />
+				</label>
+			</p>
+			<p>
+				<select name="fields[items]" multiple="multiple" style="width: 300px;">
+					<xsl:for-each select="/data/lists/entry[@id='5']/items/item">
+						<option value="{@id}" selected="selected"><xsl:value-of select="to-do" /></option>
+					</xsl:for-each>
+				</select>
+			</p>
+			<input name="action[save-list]" type="submit" value="Add to List" />
+		</fieldset>
+	</form>
 </xsl:template>
 
 </xsl:stylesheet>
