@@ -41,10 +41,10 @@
 	<form method="post" action="" enctype="multipart/form-data">
 		<fieldset>
 			<legend><xsl:value-of select="name"/></legend>
-			<xsl:apply-templates select="items/item" mode="form"/>
 			<xsl:call-template name="new-item-field">
 				<xsl:with-param name="index" select="count(items/item)" />
 			</xsl:call-template>
+			<xsl:apply-templates select="items/item" mode="form"/>
 			<input name="action[save-items]" type="submit" value="Update List"/>
 		</fieldset>
 	</form>
