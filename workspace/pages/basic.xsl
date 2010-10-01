@@ -148,6 +148,11 @@
 </xsl:template>
 
 <xsl:template name="add-item-to-list">
+	<xsl:param name="sort-order-values">
+		<xsl:call-template name="implode">
+			<xsl:with-param name="items" select="/data/lists/entry[@id='5']/items/item/@id" />
+		</xsl:call-template>
+	</xsl:param>
 	<form method="post" action="" enctype="multipart/form-data">
 		<fieldset>
 			<legend>Add to List</legend>
@@ -164,9 +169,22 @@
 					</xsl:for-each>
 				</select>
 			</p>
+			<input name="fields[sort_order][8]" type="hidden" value="{$sort-order-values}" />
+			<input name="fields[subsection_id][8]" type="hidden" value="2" />
 			<input name="action[save-list]" type="submit" value="Add to List" />
 		</fieldset>
 	</form>
+</xsl:template>
+
+<xsl:template name="implode">
+	<xsl:param name="items" />
+	<xsl:param name="separator" select="','" />
+	<xsl:for-each select="$items">
+		<xsl:if test="position() &gt; 1">
+			<xsl:value-of select="$separator" />
+		</xsl:if>
+		<xsl:value-of select="." />
+	</xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>
