@@ -22,3 +22,6 @@
 [submodule "extensions/xssfilter"]
 	path = extensions/xssfilter
 	url = git://github.com/symphonycms/xssfilter.git
+[submodule "extensions/order_entries"]
+	path = extensions/order_entries
+	url = git://github.com/symphonists/order_entries.git
