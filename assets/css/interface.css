@@ -172,7 +172,7 @@ Layout
 	}
 #header .box {
 	display:block;
-	height:5em;
+	height:6em;
 	background:#2A2B2E url("ui/img/header_shadow.gif") center bottom repeat-x;
 	}
 #navigation .box {
@@ -203,7 +203,7 @@ Layout
 ----------------------------------------------- */
 #header h1 {
 	float:left;
-	margin:17px 0 0 25px;
+	margin:23px 0 0 25px;
 }
 #header h1 a {
 	float:left;
