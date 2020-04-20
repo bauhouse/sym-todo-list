@@ -5,28 +5,12 @@
 <xsl:import href="../utilities/master.xsl"/>
 <xsl:import href="../utilities/list-sites.xsl"/>
 <xsl:import href="../utilities/list-resources.xsl"/>
-<xsl:param name="count" select="0"/>
+<xsl:import href="../utilities/site-select-menu.xsl"/>
 
 <xsl:template match="data">
 	<div id="box-content">
 		<div id="content" class="content-3col-overview">
-			<form class="filter" name="siteSelectMenu" id="siteSelectMenu">
-				<select name="siteSelectList">
-					<option value="http://www.domain7.com/">Domain7</option>
-					<optgroup label="Symphony CMS">
-						<option value="http://symphony-cms.com/discuss/">Forum</option>
-						<option value="http://symphony-cms.com/discuss//blog/">Blog</option>
-						<option value="http://symphony-cms.com/discuss/issues/">Issues</option>
-						<option value="http://symphony-cms.com/get-involved/member/{$username}/">Member Profile</option>
-						<option value="http://github.com/symphony/symphony-2">GitHub</option>
-					</optgroup>
-					<optgroup label="GitHub">
-						<option value="http://github.com/">Dashboard</option>
-						<option value="http://github.com/{$username}/">Profile</option>
-					</optgroup>
-				</select>
-				<input type="button" onClick="document.location = document.siteSelectMenu.siteSelectList.options [document.siteSelectMenu.siteSelectList.selectedIndex].value;" value="Go to Site" />
-			</form>
+			<xsl:call-template name="site-select-menu"/>
 			<h2>
 				<a href="{$root}/"><xsl:value-of select="$page-title"/></a>
 			</h2>
