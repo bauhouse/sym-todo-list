@@ -14,11 +14,12 @@
 	encoding="UTF-8"
 	indent="yes" />
 
-<xsl:variable name="is-logged-in" select="/data/events/login-info/@logged-in"/>
-<xsl:variable name="name" select="/data/events/login-info/name"/>
-<xsl:variable name="username" select="/data/events/login-info/username"/>
-<xsl:variable name="user-type" select="/data/events/login-info/@user-type"/>
-<xsl:variable name="user-id" select="/data/events/login-info/@id"/>
+<xsl:variable name="is-logged-in" select="/data/params/ds-logged-in-author"/>
+<xsl:variable name="author" select="/data/logged-in-author/author"/>
+<xsl:variable name="name" select="$author/name"/>
+<xsl:variable name="username" select="$author/username"/>
+<xsl:variable name="user-type" select="$author/@user-type"/>
+<xsl:variable name="user-id" select="$author/@id"/>
 
 <xsl:template match="/">
 	<html>
